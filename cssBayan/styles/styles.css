@@ -1,3 +1,13 @@
+/*var*/
+:root {
+  --primary-color: #eef0f6;
+  --secondary-color: #cfdaec;
+  --border-color: #9cb9d1;
+  --text-color: #094d74;
+  --hover--color: #759cd8;
+}
+
+/*common*/
 html {
   box-sizing: border-box;
   scroll-behavior: smooth;
@@ -24,8 +34,8 @@ body {
   font-weight: 400;
   font-size: 20px;
   line-height: 100%;
-  color: white;
-  background-color: green;
+  color: var(--text-color);
+  background-color: var(--primary-color);
 }
 
 :active,
@@ -54,6 +64,7 @@ ul {
   list-style: none;
 }
 
+/*accordion*/
 .accordion {
   max-width: 1920px;
   padding: 50px 20px;
@@ -66,18 +77,29 @@ ul {
 }
 
 .accordion__title {
-
+  margin: 0 0 50px 0;
+  font-size: 2em;
+  line-height: 100%;
+  font-weight: 600;
 }
 
 .bayan {
   width: 100%;
+  color: var(--hover--color);
+  cursor: pointer;
 }
 
 .bayan__item {
   width: 100%;
+  border-top: 2px solid var(--border-color);
+}
+
+.bayan__item:not(:last-child) {
+  margin-bottom: 20px;
 }
 
 .bayan__label {
+  padding: 15px 5px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -85,23 +107,20 @@ ul {
 }
 
 .bayan__title {
-
+  margin: 0;
+  font-size: 1.3em;
+  line-height: 100%;
+  font-weight: 600;
+  color: inherit;
+  transition: color 0.3s ease-in-out;
 }
 
 .bayan__input {
-  appearance: none;
-
+  position: absolute;
   width: 0;
   height: 0;
   opacity: 0;
-}
-
-.bayan__input:checked ~ .bayan__content {
-  display: block;
-}
-
-.bayan__input:checked + .bayan__label > .bayan__icon {
-  transform: rotate(90deg);
+  appearance: none;
 }
 
 .bayan__icon {
@@ -109,14 +128,42 @@ ul {
   width: 20px;
   height: 20px;
   transform: rotate(45deg);
-  fill: white;
-  transition: transform 0.3s ease-in-out;
+  fill: var(--text-color);
+  opacity: 0;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
 .bayan__content {
-  display: none;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .bayan__image {
+  display: block;
+  width: 50%;
+  height: 250px;
+}
 
+/*checked input*/
+.bayan__input:checked ~ .bayan__content {
+  color: red;
+}
+
+.bayan__input:checked + .bayan__label {
+  color: var(--text-color);
+}
+
+.bayan__input:checked + .bayan__label > .bayan__icon {
+  transform: rotate(90deg);
+}
+
+/*bayan hover*/
+.bayan:hover {
+  color: var(--text-color);
+}
+
+.bayan:hover .bayan__icon {
+  opacity: 1;
 }
