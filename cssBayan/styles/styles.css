@@ -36,12 +36,6 @@ body {
   outline-offset: 0;
 }
 
-.visually-hidden {
-  visibility: hidden;
-  pointer-events: none;
-  position: absolute;
-}
-
 .stop-scroll {
   overflow: hidden;
 }
@@ -60,8 +54,69 @@ ul {
   list-style: none;
 }
 
-.container {
+.accordion {
   max-width: 1920px;
-  padding: 0 20px;
+  padding: 50px 20px;
   margin: 0 auto;
+}
+
+.accordion__content {
+  margin: 0 auto;
+  width: 60%;
+}
+
+.accordion__title {
+
+}
+
+.bayan {
+  width: 100%;
+}
+
+.bayan__item {
+  width: 100%;
+}
+
+.bayan__label {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+}
+
+.bayan__title {
+
+}
+
+.bayan__input {
+  appearance: none;
+
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.bayan__input:checked ~ .bayan__content {
+  display: block;
+}
+
+.bayan__input:checked + .bayan__label > .bayan__icon {
+  transform: rotate(90deg);
+}
+
+.bayan__icon {
+  margin-left: auto;
+  width: 20px;
+  height: 20px;
+  transform: rotate(45deg);
+  fill: white;
+  transition: transform 0.3s ease-in-out;
+}
+
+.bayan__content {
+  display: none;
+}
+
+.bayan__image {
+
 }
