@@ -72,8 +72,8 @@ ul {
 }
 
 .accordion__content {
-  margin: 0 auto;
   width: 60%;
+  margin: 0 auto;
 }
 
 .accordion__title {
@@ -91,18 +91,20 @@ ul {
 
 .bayan__item {
   width: 100%;
-  border-top: 2px solid var(--border-color);
 }
 
 .bayan__item:not(:last-child) {
-  margin-bottom: 20px;
+  margin-bottom: 8px;
 }
 
 .bayan__label {
-  padding: 15px 5px;
+  padding: 15px 10px;
+  margin-bottom: 8px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  background: var(--secondary-color);
+  border-radius: 10px;
   cursor: pointer;
 }
 
@@ -124,31 +126,37 @@ ul {
 }
 
 .bayan__icon {
-  margin-left: auto;
   width: 20px;
   height: 20px;
-  transform: rotate(45deg);
+  margin-left: auto;
   fill: var(--text-color);
   opacity: 0;
+  transform: rotate(45deg);
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
 .bayan__content {
-  padding: 20px;
+  max-height: 0;
+  padding: 0 20px;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+  transform: scale(0);
+  transition: max-height 0.3s ease-in-out, transform 0.5s ease-in-out;
 }
 
 .bayan__image {
   display: block;
-  width: 50%;
-  height: 250px;
+  width: 80%;
+  height: 80%;
+  object-fit: cover;
 }
 
 /*checked input*/
 .bayan__input:checked ~ .bayan__content {
-  color: red;
+  max-height: 700px;
+  transform: scale(1);
 }
 
 .bayan__input:checked + .bayan__label {
