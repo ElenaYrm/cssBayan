@@ -178,7 +178,7 @@ ul {
 }
 
 /*media*/
-@media (min-width: 481px) {
+@media (min-width: 569px) {
   body {
     font-size: 1em;
   }
@@ -193,7 +193,7 @@ ul {
   }
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 1081px) {
   body {
     font-size: 1.25em;
   }
@@ -201,7 +201,10 @@ ul {
   .accordion__content {
     width: 60%;
   }
+}
 
+/*bayan hover - for devices which has hover effect*/
+@media (hover: hover) {
   .bayan {
     color: var(--hover--color);
     cursor: pointer;
@@ -215,15 +218,21 @@ ul {
     opacity: 0;
     transition: opacity 0.3s ease-in-out, transform 0.5s ease-in-out;
   }
-}
 
-/*bayan hover*/
-@media (hover: hover) {
   .bayan:hover {
     color: var(--text-color);
   }
 
   .bayan:hover .bayan__icon {
     opacity: 1;
+  }
+
+  .bayan__input:hover + .bayan__label > .bayan__content {
+    max-height: 100vh;
+    transform: scale(1);
+  }
+
+  .bayan__input:hover + .bayan__label > .bayan__control > .bayan__icon {
+    transform: rotate(90deg);
   }
 }
