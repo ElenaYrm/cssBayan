@@ -1,0 +1,238 @@
+/*var*/
+:root {
+  --primary-color: #eef0f6;
+  --secondary-color: #cfdaec;
+  --border-color: #9cb9d1;
+  --text-color: #094d74;
+  --hover--color: #759cd8;
+}
+
+/*common*/
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+body {
+  font-family: sans-serif;
+  font-weight: 400;
+  font-size: 0.8em;
+  line-height: 100%;
+  color: var(--text-color);
+  background-color: var(--primary-color);
+}
+
+:active,
+:hover,
+:focus,
+:focus-visible {
+  outline: none;
+  outline-offset: 0;
+}
+
+.stop-scroll {
+  overflow: hidden;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/*accordion*/
+.accordion {
+  padding: 2em 2em;
+  margin: 0 auto;
+}
+
+.accordion__content {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.accordion__title {
+  margin: 0 0 1em 0;
+  font-size: 2em;
+  line-height: 100%;
+  font-weight: 600;
+}
+
+.bayan {
+  width: 100%;
+  color: var(--text-color);
+}
+
+.bayan__item {
+  width: 100%;
+}
+
+.bayan__item:not(:last-child) {
+  margin-bottom: 0.8em;
+}
+
+.bayan__label {
+  display: flex;
+  flex-direction: column;
+}
+
+.bayan__control {
+  padding: 1em;
+  margin-bottom: 0.8em;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background: var(--secondary-color);
+  border-radius: 1em;
+}
+
+.bayan__title {
+  margin: 0 0.5em 0 0;
+  display: block;
+  font-size: 1.3em;
+  line-height: 100%;
+  font-weight: 600;
+  color: inherit;
+  transition: color 0.3s ease-in-out;
+}
+
+.bayan__icon {
+  width: 1.2em;
+  height: 1.2em;
+  margin-left: auto;
+  fill: var(--text-color);
+  transform: rotate(45deg);
+  transition: transform 0.5s ease-in-out, fill 0.3s ease-in-out;
+}
+
+.bayan__content {
+  max-height: 0;
+  padding: 0 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transform: scale(0);
+  transition: max-height 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.bayan__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/*checked input*/
+.bayan__input:checked + .bayan__label > .bayan__content {
+  max-height: 100vh;
+  transform: scale(1);
+}
+
+.bayan__input:checked + .bayan__label {
+  color: var(--text-color);
+}
+
+.bayan__input:checked + .bayan__label > .bayan__control > .bayan__icon {
+  transform: rotate(90deg);
+}
+
+/*active*/
+.bayan__item:active + .bayan__label > .bayan__content {
+  opacity: 0.7;
+}
+
+.bayan__input:active + .bayan__label {
+  color: var(--hover--color);
+}
+
+.bayan__input:active + .bayan__label > .bayan__control > .bayan__icon {
+  fill: var(--hover--color);
+}
+
+.bayan__input:active + .bayan__label > .bayan__content > .bayan__image {
+  opacity: 0.5;
+}
+
+/*media*/
+@media (min-width: 569px) {
+  body {
+    font-size: 1em;
+  }
+
+  .accordion__content {
+    width: 90%;
+  }
+
+  .bayan__image {
+    width: 80%;
+    height: 80%;
+  }
+}
+
+@media (min-width: 1081px) {
+  body {
+    font-size: 1.25em;
+  }
+
+  .accordion__content {
+    width: 60%;
+  }
+}
+
+/*bayan hover - for devices which has hover effect*/
+@media (hover: hover) {
+  .bayan {
+    color: var(--hover--color);
+    cursor: pointer;
+  }
+
+  .bayan__label {
+    cursor: pointer;
+  }
+
+  .bayan__icon {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, transform 0.5s ease-in-out;
+  }
+
+  .bayan:hover {
+    color: var(--text-color);
+  }
+
+  .bayan:hover .bayan__icon {
+    opacity: 1;
+  }
+
+  .bayan__input:hover + .bayan__label > .bayan__content {
+    max-height: 100vh;
+    transform: scale(1);
+  }
+
+  .bayan__input:hover + .bayan__label > .bayan__control > .bayan__icon {
+    transform: rotate(90deg);
+  }
+}
